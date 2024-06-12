@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax and Salary Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Tax and Salary Calculator</h2>
+    <form id="calculator-form">
+        <label for="type">Select Type:</label>
+        <select id="type" name="type" required onchange="toggleFields()">
+            <option value="" disabled selected>Select an option</option>
+            <option value="salary">Salary</option>
+            <option value="tax">Tax</option>
+        </select>
+
+        <div id="salary-fields" class="hidden">
+            <label for="monthly-salary">Monthly Gross Salary:</label>
+            <input type="number" id="monthly-salary" name="monthly-salary">
+
+            <label for="bonus">Bonus (optional):</label>
+            <input type="number" id="bonus" name="bonus">
+
+            <label for="other-income">Other Income (optional):</label>
+            <input type="number" id="other-income" name="other-income">
+        </div>
+
+        <div id="tax-fields" class="hidden">
+            <label for="monthly-tax">Monthly Tax Amount:</label>
+            <input type="number" id="monthly-tax" name="monthly-tax">
+        </div>
+
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    <div id="result"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
